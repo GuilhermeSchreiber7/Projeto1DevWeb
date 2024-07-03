@@ -32,22 +32,55 @@ const Estados = [
 ]
  const infos = ref({
   Nome: '',
-  Sobrenome: '',
   Email: '',
   Cidade:'',
   Estado: '',
   CEP: '',
   Hobbies: [],
   LinguagemProg:'',
+  Idade: '',
  }) 
 
- const showprofile = ref(false),
+ const showprofile = ref(false)
+ function mandarPerfil() {
+  showprofile.value = true
+ }
+ function EsconderPerfil(){
+  showprofile.value = false
+ }
 </script>
 
 <template>
 <div class="containerForm">
 <main>
-  <h1>SEU PERFIL:</h1>
+  <h1>Formulário:</h1>
+  <form @submit.prevent="mandarPerfil()">
+    <div>
+        <label for="inputName">Nome</label>
+        <input type="text" v-model.trim="infos.Nome" placeholder="Digite seu nome" id="inputName" required />
+    </div>
+    <div>
+        <label for="inputEmail">Email</label>
+        <input id="inputEmail" type="email" v-model.trim="infos.Email" placeholder="Digite seu email" required>
+    </div>
+    <div>
+        <label for="inputAge">Idade</label>
+        <input id="inputAge" type="number" v-model.number="infos.Idade" placeholder="Digite sua Idade " required>
+    </div>
+        <div>
+        <button type="submit">Enviar</button>
+        </div>
+    </form>
+     <div v-show="showprofile">
+    <p>Confirmação registro</p>
+    <div>
+        <p>Nome: {{ infos.Nome }}</p>
+        <p>Idade: {{ infos.Idade }}</p>
+        <p>Email: {{ infos.Email }}</p>
+        <button></button>
+    </div>
+    </div>
+
 </main>
 </div>
 </template>
