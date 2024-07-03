@@ -33,18 +33,22 @@ const Estados = [
  const infos = ref({
   Nome: '',
   Email: '',
+  Senha: '',
+  Nascimento: '',
   Cidade:'',
   Estado: '',
   CEP: '',
   Hobbies: [],
   LinguagemProg:'',
-  Idade: '',
+  Biografia:''
  }) 
 
  const showprofile = ref(false)
+
  function mandarPerfil() {
   showprofile.value = true
  }
+
  function EsconderPerfil(){
   showprofile.value = false
  }
@@ -64,20 +68,21 @@ const Estados = [
         <input id="inputEmail" type="email" v-model.trim="infos.Email" placeholder="Digite seu email" required>
     </div>
     <div>
-        <label for="inputAge">Idade</label>
-        <input id="inputAge" type="number" v-model.number="infos.Idade" placeholder="Digite sua Idade " required>
+        <label for="inputAge">Nascimento</label>
+        <input id="inputAge" type="date" v-model.date="infos.Nascimento" placeholder="Digite sua Nascimento " required>
     </div>
         <div>
         <button type="submit">Enviar</button>
         </div>
     </form>
+
      <div v-show="showprofile">
     <p>Confirmação registro</p>
     <div>
         <p>Nome: {{ infos.Nome }}</p>
-        <p>Idade: {{ infos.Idade }}</p>
+        <p>Nascimento: {{ infos.Nascimento }}</p>
         <p>Email: {{ infos.Email }}</p>
-        <button></button>
+        <button onclick="EsconderPerfil()">aaaaa</button>
     </div>
     </div>
 
