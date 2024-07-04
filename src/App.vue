@@ -82,7 +82,7 @@ const Estados = [
         <p>Nome: {{ infos.Nome }}</p>
         <p>Nascimento: {{ infos.Nascimento }}</p>
         <p>Email: {{ infos.Email }}</p>
-        <button onclick="EsconderPerfil()">aaaaa</button>
+        <button @click="EsconderPerfil()">aaaaa</button>
     </div>
     </div>
 
