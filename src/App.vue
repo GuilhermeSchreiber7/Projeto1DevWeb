@@ -59,10 +59,10 @@ const Estados = [
 </script>
 
 <template>
-<div class="containerForm">
+<div>
 <main>
-<div v-show="form">
-  <h1>Formulário:</h1>
+<div class="containerForm" v-show="form">
+  <h1>SUAS INFORMAÇÕES</h1>
   <form @submit.prevent="mandarPerfil()">
     <div>
         <label for="inputName">Nome</label>
@@ -146,15 +146,17 @@ const Estados = [
     </form>
   </div>
 
-     <div v-show="showprofile">
-      <h1>Dados enviados</h1>
-    <div>
+     <div id="infosEnviadas" v-show="showprofile" >
+      <h1>SEUS DADOS</h1>
         <p>Nome: {{ infos.Nome }}</p>
         <p>Nascimento: {{ infos.Nascimento }}</p>
         <p>Email: {{ infos.Email }}</p>
+        <p>Cidade: {{ infos.Cidade }}</p>
         <p>Estado: {{ infos.Estado }}</p>
+        <p>Hobbies: {{ infos.Hobbies.join(', ') }}</p>
+        <p>Linguagem Preferida: {{ infos.LinguagemProg }}</p>
+        <div class="Bio"><p> Biografia: {{ infos.Biografia }}</p></div>
         <button @click="EsconderPerfil()">Voltar</button>
-    </div>
     </div>
 
 </main>
