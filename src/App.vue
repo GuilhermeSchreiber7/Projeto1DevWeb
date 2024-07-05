@@ -94,16 +94,13 @@ const Estados = [
     </div>
     <div>
         <label for="inputEstado">Estado</label>
-        <input id="inputEstado" type="" v-model="infos.Estado" placeholder="Estado" required>
+      
             <select id="inputEstado" value="Estado" v-model="infos.Estado">
               <option v-for="Estado of Estados" :key="Estado.uf" :value="Estado.uf">
-                {{ Estado.nome }} - {{ Estado.uf }}
+                {{ Estado.nome }}
             </option>
             </select>
     </div>
-        <div>
-        <button v-if="infos.Senha == infos.ConfSenha && infos.Senha.length >= 8" type="submit">Enviar</button>
-        </div>
         <div>
             <p>Hobbies:</p>
             <input type="checkbox" id="hobbies" value="Esporte" v-model="infos.Hobbies">
@@ -138,6 +135,14 @@ const Estados = [
             <input type="radio" id="C#" value="C#" v-model="infos.LinguagemProg">
             <label for="C#">C#</label>
         </div>
+         <div>
+          <label for="bio">Biografia</label>
+          <input type="text" id="bio" placeholder="Sua Biografia (opcional)" v-model="infos.Biografia">
+         </div>
+
+        <div>
+        <button v-if="infos.Senha == infos.ConfSenha && infos.Senha.length >= 8" type="submit">Enviar</button>
+        </div>
     </form>
   </div>
 
@@ -147,6 +152,7 @@ const Estados = [
         <p>Nome: {{ infos.Nome }}</p>
         <p>Nascimento: {{ infos.Nascimento }}</p>
         <p>Email: {{ infos.Email }}</p>
+        <p>Estado: {{ infos.Estado }}</p>
         <button @click="EsconderPerfil()">Voltar</button>
     </div>
     </div>
